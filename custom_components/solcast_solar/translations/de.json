@@ -1,0 +1,129 @@
+{
+    "config": {
+        "step": {
+            "user": {
+                "data": {
+                    "api_key": "Solcast-API-Schlüssel"
+                },
+                "description": "Trage deinen Solcast-API-Kontoschlüssel ein."
+            }
+        }
+    },
+    "options": {
+        "step": {
+            "init": {
+                "data": {
+                    "api_key": "Solcast-API-Schlüssel"
+                },
+                "description": "Dein Solcast-API-Kontoschlüssel"
+            },
+            "api": {
+                "data": {
+                    "api_key": "Solcast-API-Schlüssel"
+                },
+                "description": "Ihr Solcast-API-Kontoschlüssel"
+            },
+            "dampen": {
+                "data": {
+                    "damp00": "00:00",
+                    "damp01": "01:00",
+                    "damp02": "02:00",
+                    "damp03": "03:00",
+                    "damp04": "04:00",
+                    "damp05": "05:00",
+                    "damp06": "06:00",
+                    "damp07": "07:00",
+                    "damp08": "08:00",
+                    "damp09": "09:00",
+                    "damp10": "10:00",
+                    "damp11": "11:00",
+                    "damp12": "12:00",
+                    "damp13": "13:00",
+                    "damp14": "14:00",
+                    "damp15": "15:00",
+                    "damp16": "16:00",
+                    "damp17": "17:00",
+                    "damp18": "18:00",
+                    "damp19": "19:00",
+                    "damp20": "20:00",
+                    "damp21": "21:00",
+                    "damp22": "22:00",
+                    "damp23": "23:00"
+                },
+                "description": "Ändern Sie den stündlichen Dämpfungsfaktor"
+            },
+            "customsensor": {
+                "data": {
+                    "customhoursensor": "Nächster X-Stunden-Sensor"
+                },
+                "description": "Benutzerdefinierter Sensor für die Gesamtenergie für die nächsten X Stunden"
+            },
+            "attributes": {
+                "data": {
+                    "attr_brk_estimate10": "Aktivieren Sie die Aufschlüsselung von Kostenvoranschlag 10",
+                    "attr_brk_estimate": "Aktivieren Sie die Aufschlüsselung von Kostenvoranschlag 50",
+                    "attr_brk_estimate90": "Aktivieren Sie die Aufschlüsselung von Kostenvoranschlag 90",
+                    "attr_brk_site": "Aktivieren Sie die Site-Aufschlüsselung",
+                    "attr_brk_halfhourly": "Aktivieren Sie die halbstündliche Detailprognose",
+                    "attr_brk_hourly": "Aktivieren Sie die stündlichen Detailprognose"
+                },
+                "description": "Wählen Sie die verfügbaren Sensorattribute aus"
+            }
+        }
+    },
+    "system_health": {
+        "info": {
+            "can_reach_server": "Verbindung zum Solcast-Server",
+            "used_requests": "Verbrauchte API-Anfragen",
+            "rooftop_site_count": "Anzahl der Dachflächen"
+        }
+    },
+    "services": {
+        "update_forecasts": {
+            "name": "Aktualisieren",
+            "description": "Lade die neusten Prognosedaten von Solcast herunter."
+        },
+        "clear_all_solcast_data": {
+            "name": "Solcast-Daten zurücksetzen",
+            "description": "Alle gespeicherten Solcast-Daten werden  entfernt. Die Datei solcast.json wird dadurch gelöscht."
+        },
+        "query_forecast_data": {
+            "name": "Prognosedaten herunterladen",
+            "description": "Es werden die aktuellen Prognosedaten heruntergeladen.",
+            "fields": {
+                "start_date_time": {
+                    "name": "Anfangsdatum und /-uhrzeit",
+                    "description": "Startzeitpunkt der Prognosedaten."
+                },
+                "end_date_time": {
+                    "name": "Enddatum und /-uhrzeit",
+                    "description": "Endzeitpunkt der Prognosedaten."
+                }
+            }
+        }
+    },
+    "entity": {
+        "sensor": {
+            "power_now_30m": {"name": "Leistung kommende 30 Minuten"},
+            "power_now_1hr": {"name": "Leistung kommende 60 Minuten"},
+            "total_kwh_forecast_today": {"name": "Prognose heute"},
+            "peak_w_today": {"name": "Prognose Spitzenleistung heute"},
+            "peak_w_time_today": {"name": "Zeitpunkt Spitzenleistung heute"},
+            "forecast_this_hour": {"name": "Prognose aktuelle Stunde"},
+            "get_remaining_today": {"name": "Prognose verbleibende Leistung heute"},
+            "forecast_next_hour": {"name": "Prognose nächste Stunde"},
+            "total_kwh_forecast_tomorrow": {"name": "Prognose morgen"},
+            "peak_w_tomorrow": {"name": "Prognose Spitzenleistung morgen"},
+            "peak_w_time_tomorrow": {"name": "Zeitpunkt Spitzenleistung morgen"},
+            "api_counter": {"name": "Verwendete API-Abrufe"},
+            "api_limit": {"name": "max. API-Abrufe"},
+            "lastupdated": {"name": "Zeitpunkt letzter API-Abruf"},
+            "total_kwh_forecast_d3": {"name": "Prognose Tag 3"},
+            "total_kwh_forecast_d4": {"name": "Prognose Tag 4"},
+            "total_kwh_forecast_d5": {"name": "Prognose Tag 5"},
+            "total_kwh_forecast_d6": {"name": "Prognose Tag 6"},
+            "total_kwh_forecast_d7": {"name": "Prognose Tag 7"},
+            "power_now": {"name": "Aktuelle Leistung"}
+        }
+    }
+}
