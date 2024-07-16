@@ -402,12 +402,12 @@ async def async_migrate_entry(hass: HomeAssistant, config_entry: ConfigEntry) ->
     #attributes to include
     if config_entry.version <= 8:
         new = {**config_entry.options}
-        if not new.get(BRK_ESTIMATE): new[BRK_ESTIMATE] = True
-        if not new.get(BRK_ESTIMATE10): new[BRK_ESTIMATE10] = True
-        if not new.get(BRK_ESTIMATE90): new[BRK_ESTIMATE90] = True
-        if not new.get(BRK_SITE): new[BRK_SITE] = True
-        if not new.get(BRK_HALFHOURLY): new[BRK_HALFHOURLY] = True
-        if not new.get(BRK_HOURLY): new[BRK_HOURLY] = True
+        if new.get(BRK_ESTIMATE) is None: new[BRK_ESTIMATE] = True
+        if new.get(BRK_ESTIMATE10) is None: new[BRK_ESTIMATE10] = True
+        if new.get(BRK_ESTIMATE90) is None: new[BRK_ESTIMATE90] = True
+        if new.get(BRK_SITE) is None: new[BRK_SITE] = True
+        if new.get(BRK_HALFHOURLY)is None: new[BRK_HALFHOURLY] = True
+        if new.get(BRK_HOURLY) is None: new[BRK_HOURLY] = True
         try:
             hass.config_entries.async_update_entry(config_entry, options=new, version=8)
             upgraded()
