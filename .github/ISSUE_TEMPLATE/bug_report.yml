@@ -1,0 +1,74 @@
+name: Report an issue with Solcast PV Solar Integration
+description: Report an issue with Solcast PV Solar Home Assistant Integration.
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This issue form is for reporting bugs only!
+        
+        # Do not just write 'it does not work, vX.X.X, HA, X.X.X'
+        ## If not enough information is supplied I may just ignore or close the issue 
+        
+
+        If you have a feature or enhancement request, please use the [discussion forums][fr] section.
+
+        [fr]: https://github.com/BJReplay/ha-solcast-solar/discussions
+  - type: textarea
+    validations:
+      required: true
+    attributes:
+      label: The problem
+      description: >-
+        Describe the issue you are experiencing here. What ere you trying to do and what happened.
+
+        Provide a clear and concise description of what the problem is.
+  - type: markdown
+    attributes:
+      value: |
+        ## Environment
+  - type: input
+    id: version
+    validations:
+      required: true
+    attributes:
+      label: What version of Solcast Integration has the issue?
+      placeholder: vX.X.XX
+      description: >
+        Can be found in: Settings ⇒ Devices & Services ⇒ Solcast Solar ⇒ top left box Service info ⇒ Version.
+
+  - type: input
+    attributes:
+      label: What version of Home Assistant are you using?
+      placeholder: core-
+      description: >
+        If known, otherwise leave blank.
+
+  - type: markdown
+    attributes:
+      value: |
+        # Details
+  - type: textarea
+    attributes:
+      label: Diagnostics information
+      placeholder: "drag-and-drop the diagnostics data file here (do not copy-and-paste the content)"
+      description: >-
+        This integrations provide the ability to [download diagnostic data](https://www.home-assistant.io/docs/configuration/troubleshooting/#debug-logs-and-diagnostics).
+
+        **It would really help if you could download the diagnostics data,
+        and <ins>drag-and-drop that file into the textbox below.</ins>**
+
+        It generally allows pinpointing defects and thus resolving issues faster.
+
+  - type: textarea
+    id: loginfo
+    validations:
+      required: true
+    attributes:
+      label: Logs debug/info/error output
+      description: Debug info, error message, or stack traces.
+      render: txt
+  - type: textarea
+    attributes:
+      label: Additional information
+      description: >
+        If you have any additional information for us, use the field below.
