@@ -400,10 +400,14 @@ async def async_migrate_entry(hass: HomeAssistant, config_entry: ConfigEntry) ->
 
     #new 4.0.39
     #attributes to include
-    if config_entry.version < 8:
+    if config_entry.version <= 8 or config_entry.version == 9:
         new = {**config_entry.options}
         new[BRK_ESTIMATE] = True
+        new[BRK_ESTIMATE10] = True
+        new[BRK_ESTIMATE90] = True
         new[BRK_SITE] = True
+        new[BRK_HALFHOURLY] = True
+        new[BRK_HOURLY] = True
         try:
             hass.config_entries.async_update_entry(config_entry, options=new, version=8)
             upgraded()
@@ -414,24 +418,3 @@ async def async_migrate_entry(hass: HomeAssistant, config_entry: ConfigEntry) ->
                 upgraded()
             else:
                 raise
-
-    #new 4.0.39
-    #more attributes to include
-    if config_entry.version < 9:
-        new = {**config_entry.options}
-        new[BRK_ESTIMATE10] = True
-        new[BRK_ESTIMATE90] = True
-        new[BRK_HALFHOURLY] = True
-        new[BRK_HOURLY] = True
-        try:
-            hass.config_entries.async_update_entry(config_entry, options=new, version=9)
-            upgraded()
-        except Exception as e:
-            if "unexpected keyword argument 'version'" in e:
-                config_entry.version = 9
-                hass.config_entries.async_update_entry(config_entry, options=new_options)
-                upgraded()
-            else:
-                raise
-
-    return True
