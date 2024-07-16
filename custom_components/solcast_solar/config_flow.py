@@ -19,7 +19,7 @@ from .const import DOMAIN, CONFIG_OPTIONS, CUSTOM_HOUR_SENSOR, BRK_ESTIMATE, BRK
 class SolcastSolarFlowHandler(ConfigFlow, domain=DOMAIN):
     """Handle a config flow for Solcast Solar."""
 
-    VERSION = 8 #v5 started in 4.0.8, #6 started 4.0.15, #7 started in 4.0.16, #8/9 started in 4.0.39
+    VERSION = 7 #v5 started in 4.0.8, #6 started 4.0.15, #7 started in 4.0.16, #8 started in 4.0.39
 
     @staticmethod
     @callback
@@ -35,7 +35,7 @@ class SolcastSolarFlowHandler(ConfigFlow, domain=DOMAIN):
         """Handle a flow initiated by the user."""
         if self._async_current_entries():
             return self.async_abort(reason="single_instance_allowed")
-        
+
         if user_input is not None:
             return self.async_create_entry(
                 title= "Solcast Solar", 
